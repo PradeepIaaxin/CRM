@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nde_crm/utils/error_screen/backend_error_screen.dart';
 import 'package:nde_crm/utils/error_screen/network_error_screen.dart';
 import 'package:nde_crm/utils/theme/themes.dart';
 
@@ -15,11 +16,10 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       title: 'Flutter Demo',
     debugShowCheckedModeBanner: false ,
-      theme: AppTheme.lightTheme,   
-      darkTheme: AppTheme.darkTheme, 
-      themeMode: ThemeMode.system,    
+     
+       
 
-      home:  NetworkErrorScreen(),
+      home:  BackendErrorScreen(message: 'something went wrong',),
     );
   }
 }
