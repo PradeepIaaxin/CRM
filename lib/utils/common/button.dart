@@ -9,6 +9,7 @@ class Button extends StatefulWidget {
   final Function() onpressed;
   final BorderRadius? borderRadius;
 
+
   const Button({
     super.key,
     required this.color,
@@ -18,6 +19,7 @@ class Button extends StatefulWidget {
     required this.height,
     required this.txtcolor,
     this.borderRadius,
+
   });
 
   @override
@@ -28,23 +30,13 @@ class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onpressed,
+
       child: Container(
         height: widget.height,
         width: widget.width,
         decoration: BoxDecoration(
           color: widget.color,
-          borderRadius: widget.borderRadius,
-        ),
-        child: Center(
-          child: Text(
-            widget.texxt,
-            style: TextStyle(
-              color: widget.txtcolor,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
+
         ),
       ),
     );
