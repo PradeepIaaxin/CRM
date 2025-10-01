@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
-final lightTheme = ThemeData(
-    bottomSheetTheme: const BottomSheetThemeData(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
-      ),
+class AppTheme {
+
+  static ThemeData lightTheme = ThemeData(
+    brightness: Brightness.light,
+    primarySwatch: Colors.blue,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.blue,
+      foregroundColor: Colors.white,
     ),
-    dialogTheme: DialogThemeData(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ));
-final darkTheme = lightTheme.copyWith(brightness: Brightness.dark);
+  );
+
+
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primarySwatch: Colors.blue,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.black,
+      foregroundColor: Colors.white,
+    ),
+  );
+}
