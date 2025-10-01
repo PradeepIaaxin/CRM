@@ -15,6 +15,7 @@ class MyTextfomrfiledbox extends StatefulWidget {
   final bool obscureText;
   final bool? enable;
   final List<TextInputFormatter>? inputFormatters;
+
   final FocusNode? focusNode;
   final void Function(String)? onChanged;
   final bool readOnly;
@@ -47,7 +48,7 @@ class MyTextfomrfiledbox extends StatefulWidget {
 
 class _MyTextFormFieldBoxState extends State<MyTextfomrfiledbox> {
   late FocusNode _focusNode;
-  Color _currentBorderColor = Colors.grey.shade300;
+  Color _currentBorderColor = Color(0xFF4752EB);
 
   @override
   void initState() {
@@ -56,8 +57,8 @@ class _MyTextFormFieldBoxState extends State<MyTextfomrfiledbox> {
     _focusNode.addListener(() {
       setState(() {
         _currentBorderColor = _focusNode.hasFocus
-            ? Colors.black26
-            : Colors.grey.shade300;
+            ? Color(0xFF4752EB)
+            : Color(0xFF4752EB);
       });
     });
   }
@@ -93,9 +94,8 @@ class _MyTextFormFieldBoxState extends State<MyTextfomrfiledbox> {
         hintText: widget.hinttext,
         labelText: widget.hinttext,
         fillColor: Colors.white,
-
         filled: true,
-        counterText: '', // optional: hides "0/1000" text
+        counterText: '',
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(width: 1.5, color: _currentBorderColor),

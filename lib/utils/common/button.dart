@@ -1,50 +1,56 @@
 import 'package:flutter/material.dart';
 
-class Button extends StatefulWidget {
+class Button extends StatelessWidget {
   final Color color;
   final double width;
   final double height;
-  final String texxt;
+  final String text;
   final Color txtcolor;
-  final Function() onpressed;
+  final VoidCallback? onPressed;
   final BorderRadius? borderRadius;
+  final bool isLoading;
 
   const Button({
     super.key,
     required this.color,
-    required this.onpressed,
-    required this.texxt,
     required this.width,
     required this.height,
+    required this.text,
     required this.txtcolor,
+    required this.onPressed,
     this.borderRadius,
+    this.isLoading = false,
   });
 
   @override
-  State<Button> createState() => _ButtonState();
-}
-
-class _ButtonState extends State<Button> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onpressed,
+      onTap: isLoading ? null : onPressed,
       child: Container(
-        height: widget.height,
-        width: widget.width,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
-          color: widget.color,
-          borderRadius: widget.borderRadius,
+          color: color,
+          borderRadius: borderRadius ?? BorderRadius.circular(8),
         ),
         child: Center(
-          child: Text(
-            widget.texxt,
-            style: TextStyle(
-              color: widget.txtcolor,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
+          child: isLoading
+              ? const SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 2.5,
+                  ),
+                )
+              : Text(
+                  text,
+                  style: TextStyle(
+                    color: txtcolor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
         ),
       ),
     );
